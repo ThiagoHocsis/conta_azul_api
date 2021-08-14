@@ -33,8 +33,8 @@ module ContaAzulApi
       request(method: :delete, endpoint: endpoint, authorization: authorization)
     end
 
-    def put(endpoint:, authorization:)
-      request(method: :put, endpoint: endpoint, authorization: authorization)
+    def put(endpoint:, body: nil, authorization:)
+      request(method: :put, endpoint: endpoint, body: body, authorization: authorization)
     end
 
     private
