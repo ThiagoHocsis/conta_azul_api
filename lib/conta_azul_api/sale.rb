@@ -59,6 +59,16 @@ module ContaAzulApi
 
       OpenStruct.new(sale_response)
     end
+    
+    def self.update_installment(id:, attributes: {})
+      sale_response = ContaAzulApi::Request.new.put(
+        endpoint: "#{SALES_ENDPOINT}/#{id}/installments/1", body: attributes, authorization: request_authorization
+      )
+
+      raise NotUpdated unless sale_response.success?
+
+      OpenStruct.new(sale_response)
+    end
 
     def self.create(attributes = {})
       sale_response = ContaAzulApi::Request.new.post(
