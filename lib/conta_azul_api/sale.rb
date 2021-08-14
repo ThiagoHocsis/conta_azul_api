@@ -60,9 +60,9 @@ module ContaAzulApi
       OpenStruct.new(sale_response)
     end
     
-    def self.update_installment(id:, attributes: {})
+    def self.update_installment_to_paid(id:)
       sale_response = ContaAzulApi::Request.new.put(
-        endpoint: "#{SALES_ENDPOINT}/#{id}/installments/1", body: attributes, authorization: request_authorization
+        endpoint: "#{SALES_ENDPOINT}/#{id}/installments/1", body: {status: "ACQUITTED"}, authorization: request_authorization
       )
 
       raise NotUpdated unless sale_response.success?
