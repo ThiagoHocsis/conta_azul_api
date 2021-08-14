@@ -67,7 +67,7 @@ module ContaAzulApi
 
       raise NotUpdated unless sale_response.success?
 
-      OpenStruct.new(sale_response)
+      return true
     end
 
     def self.create(attributes = {})
